@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400;1,700&display=swap");
+
+:root {
+  --green: #064635;
+  --liteGreen: hwb(165 31% 45%);
+  --oring: #f0bb62;
+  --black: #222;
+  --white: #fff;
+  --liteBlack: #666;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 56px;
+}
+h2 {
+  font-size: 46px;
+}
+h3 {
+  font-size: 36px;
+}
+h4 {
+  font-size: 26px;
+}
+h6 {
+  font-size: 18px;
+}
+
+#cont {
+  padding: 30px 120px;
+  display: flex;
+  gap: 3rem;
+}
+
+#cont img{
+    width: 74vh;
+    border-radius: 4px;
+}
+
+#info{
+    display: flex;
+    flex-direction: column;
+    padding: 60px 0;
+}
+
+#info h6{
+    color: var(--liteBlack);
+    font-weight: 500;
+    padding-bottom: 6px;
+}
+
+#info h3{
+    padding-bottom: 24px;
+}
+
+#info p{
+    padding-bottom: 36px;
+    line-height: 30px;
+    word-spacing: 3px;
+    color: var(--liteBlack);
+}
+
+#info button{
+    width: 22%;
+}
