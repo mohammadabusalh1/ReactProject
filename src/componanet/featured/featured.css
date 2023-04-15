@@ -41,16 +41,30 @@ h6 {
   gap: 10rem;
 }
 
-#featured_cont span{
-  color: var(--oring);
-}
-
 #featured {
   display: flex;
   justify-content: center;
   gap: 6rem;
+  align-items: center;
 }
 
-#featured h4 {
-  transform: rotate(270deg);
+#featured #best{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+#featured #best p{
+  font-size: 14px;
+}
+
+#featured #best i{
+  text-align: center;
+  padding: 12px;
+  border-radius: 50%;
+  margin-top: 24px;
+  width: fit-content;
+  background-color: var(--green);
+  color: var(--white);
+  cursor: pointer;
 }

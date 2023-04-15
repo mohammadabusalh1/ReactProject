@@ -8,6 +8,8 @@ import Featured from "../../componanet/featured/featured";
 import CallToAction from "../../componanet/CallToAction/CallToAction";
 import Service from "../../componanet/services/service";
 import NewProduct from "../../componanet/newProduct/NewProduct";
+import About from "../../componanet/aboutUs/About";
+import Footer from "../../componanet/footer/Footer";
 
 const Home = () => {
   return (
@@ -18,6 +20,8 @@ const Home = () => {
       <CallToAction/>
       <Service/>
       <NewProduct/>
+      <About/>
+      <Footer/>
     </div>
   );
 };

@@ -37,21 +37,21 @@ h6 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 16vh 120px;
+  padding: 16vh 90px;
   gap: 6rem;
 }
 
 #service {
   display: flex;
   align-items: center;
-  gap: 5rem;
+  gap: 4rem;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 #box {
   padding: 24px;
-  width: 13rem;
+  width: 12rem;
   border: 1px solid rgb(240, 187, 98,0.6);
   border-radius: 8px;
   display: flex;

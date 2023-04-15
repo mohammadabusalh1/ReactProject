@@ -36,12 +36,13 @@ h6 {
 #cont {
   padding: 30px 120px;
   display: flex;
-  gap: 3rem;
+  gap: 4rem;
 }
 
 #cont img{
-    width: 74vh;
+    width: 38vw;
     border-radius: 4px;
+    height: 40vw;
 }
 
 #info{
@@ -68,5 +69,6 @@ h6 {
 }
 
 #info button{
-    width: 22%;
+    width: fit-content;
+    white-space: nowrap;
 }

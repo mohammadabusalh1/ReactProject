@@ -1,0 +1,67 @@
+:root {
+  --green: #064635;
+  --liteGreen: rgb(30, 131, 104);
+  --oring: #f0bb62;
+  --black: #222;
+  --white: #fff;
+  --liteBlack: #666;
+}
+
+footer {
+  border-top: 1px solid rgb(0, 0, 0, 0.3);
+  color: var(--black);
+  background-color: rgb(240, 187, 98,0.6);
+}
+
+#box_cont {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 40px 120px;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.box a {
+  color: var(--black);
+}
+
+.box i {
+  font-size: 32px;
+  color: var(--black);
+  padding-bottom: 16px;
+}
+
+.box h6 {
+  color: var(--black);
+}
+
+.box p {
+  color: var(--black);
+}
+
+.box img {
+  height: 5rem;
+  cursor: pointer;
+}
+
+#creator {
+  background-color: var(--black);
+  text-align: center;
+  padding: 12px;
+}
+
+#creator h6 {
+  color: var(--white);
+  font-size: 16px;
+  word-spacing: 4px;
+}
+
+#creator h6 span {
+  color: var(--mainColor);
+}

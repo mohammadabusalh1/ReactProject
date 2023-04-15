@@ -20,7 +20,7 @@
 
 #new_product_cont {
   background-color: var(--liteOring);
-  padding: 4rem 0px 4rem 80px;
+  padding: 4rem 0px 0rem 80px;
   display: flex;
   gap: 8rem;
   align-items: center;
@@ -46,12 +46,12 @@
 
 #product_info p {
   line-height: 2rem;
-  color: var(--liteBlack);
+  color: #444;
 }
 
 #product_info h6 {
   padding-top: 2rem;
-  border-bottom: 3px solid red;
+  border-bottom: 3px solid #E86A33;
   width: fit-content;
   padding-bottom: 2px;
   cursor: pointer;
