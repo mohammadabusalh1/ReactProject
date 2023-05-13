@@ -22,7 +22,7 @@
     position: relative;
 }
 
-#about_info #title{
+#about_info #AboutTitle{
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
