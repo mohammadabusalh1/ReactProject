@@ -2,15 +2,18 @@ import React from "react";
 import "./nav.css";
 
 const Nav = (props) => {
+  let pages = props.pages;
+  pages = pages.map((page) => {
+    return (
+      <h6 style={{ color: props.style.color }}>{page}</h6>
+    )
+  });
   return (
     <div id="nav" style={props.style}>
       <h4>Garden.</h4>
       <div id="links">
         <div id="wordLinks">
-          <h6 style={{ color: props.style.color }}>Home</h6>
-          <h6 style={{ color: props.style.color }}>Products</h6>
-          <h6 style={{ color: props.style.color }}>About Us</h6>
-          <h6 style={{ color: props.style.color }}>Contact Us</h6>
+          {pages}
         </div>
 
         <div id="iconLinks">

@@ -51,7 +51,7 @@ h6 {
   gap: 1.5rem;
   background-color: rgb(0, 0, 0, 0.4);
   backdrop-filter: blur(0.4rem);
-  padding: 24px;
+  padding: 32px;
   border-radius: 8px;
 }
 

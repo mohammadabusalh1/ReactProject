@@ -1,0 +1,46 @@
+:root {
+  --green: #064635;
+  --liteGreen: rgb(30, 131, 104);
+  --oring: #f0bb62;
+  --black: #222;
+  --white: #fff;
+  --liteBlack: #666;
+}
+
+#ProductsMangmentHero {
+  display: flex;
+}
+
+#main {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  width: 100%;
+}
+
+#main h3{
+    text-align: center;
+}
+
+#category {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  border-bottom: 1px solid #ccc;
+  padding: 1rem;
+}
+
+#category h6 {
+  cursor: pointer;
+  color: var(--black);
+}
+
+#category h6:hover{
+  color: var(--green);
+}
+
+#MangmentHeroProducts{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}

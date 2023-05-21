@@ -15,9 +15,10 @@ const Home = () => {
  const style = {
     backgroundColor: "white",
   }
+  let pages = ["Home","Products", "About", "Contact"];
   return (
-    <div>
-      <Nav style={style} />
+    <div id="home">
+      <Nav style={style} pages={pages} />
       <Hero />
       <Featured/>
       <CallToAction/>
