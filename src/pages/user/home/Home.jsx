@@ -10,6 +10,7 @@ import Service from "../../../componanet/services/service";
 import NewProduct from "../../../componanet/newProduct/NewProduct";
 import About from "../../../componanet/aboutUs/About";
 import Footer from "../../../componanet/footer/Footer";
+import { Link } from "react-router-dom";
 
 const Home = () => {
  const style = {
@@ -88,7 +89,7 @@ function Hero() {
       <div id="heroInfo">
         <h3>{arrTitle[title]}</h3>
         <p>{arrParagraph[paragraph]}</p>
-        <button>EXPLORE</button>
+        <Link to="/products"><button>EXPLORE</button></Link>
       </div>
 
       <div id="point">

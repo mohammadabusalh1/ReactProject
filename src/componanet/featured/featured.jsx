@@ -4,7 +4,10 @@ import "./featured.css";
 import img1 from "./imgs/pin.png";
 import img2 from "./imgs/pomegranate.png";
 import img3 from "./imgs/red-grapes.png";
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 const Featured = () => {
+
   return (
     <div id="featured_cont">
       <div id="featured">
@@ -15,11 +18,13 @@ const Featured = () => {
             Agriculture. Our unique approach to customer service and
             unparalleled product quality set us apart from the competition.
           </p>
-          <i class="fa-solid fa-arrow-right"></i>
+          <Link to="/products">
+            <i class="fa-solid fa-arrow-right"></i>
+          </Link>
         </div>
         <Card img={img1} title="Pineapple" price="2" />
-        <Card img={img2} title="Pomegranate" price="1.3"/>
-        <Card img={img3} title="Red Grapes" price="2.1"/>
+        <Card img={img2} title="Pomegranate" price="1.3" />
+        <Card img={img3} title="Red Grapes" price="2.1" />
       </div>
     </div>
   );

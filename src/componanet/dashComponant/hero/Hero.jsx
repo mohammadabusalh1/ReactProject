@@ -1,5 +1,6 @@
 import React from "react";
 import "./hero.css";
+import { Link } from "react-router-dom";
 
 const Hero = (props) => {
   const backgroundStyle = {
@@ -14,7 +15,7 @@ const Hero = (props) => {
           <h3>{props.title}</h3>
         </div>
         <p>{props.paragraph}</p>
-        <button>{props.buttonText}</button>
+        <Link to={"/admin/Products"}><button>{props.buttonText}</button></Link>
       </div>
     </div>
   );

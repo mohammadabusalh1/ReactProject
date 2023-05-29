@@ -67,4 +67,10 @@ h6 {
   background-color: var(--green);
   color: var(--white);
   cursor: pointer;
+  transition: 0.2s;
+}
+
+#featured #best i:hover{
+  box-shadow: 5px 5px 10px rgb(34, 34, 34,0.15);
+  background-color: var(--black);
 }

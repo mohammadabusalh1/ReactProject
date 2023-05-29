@@ -1,0 +1,61 @@
+:root {
+  --green: #064635;
+  --liteGreen: hwb(165 31% 45%);
+  --oring: #f0bb62;
+  --black: #222;
+  --white: #fff;
+  --liteBlack: #666;
+}
+
+#account{
+    flex-direction: column;
+    width: 12vw;
+    padding: 24px 12px;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid var(--liteBlack);
+    border-radius: 8px;
+    position: absolute;
+    top: 105%;
+    right: 2rem;
+    background-color: var(--white);
+    display: none;
+    transition: 0.3s;
+    z-index: 11;
+}
+
+#account.active{
+    display: flex;
+}
+
+#account i{
+    font-size: 2vw;
+    color: var(--white);
+    background-color: var(--green);
+    padding: 16px;
+    border-radius: 50%;
+}
+
+#account input{
+    width: 90%;
+    padding: 4px 8px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+}
+
+#account button{
+    width: 90%;
+    padding: 4px 8px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: var(--liteBlack);
+    letter-spacing: normal;
+    color: var(--white);
+}
+
+#account button:hover{
+    background-color: var(--green);
+    color: var(--white);
+    letter-spacing: normal;
+}

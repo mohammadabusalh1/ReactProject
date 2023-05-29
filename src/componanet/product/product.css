@@ -12,7 +12,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.5rem;
   padding: 24px;
   border: 1px solid rgb(6, 70, 53, 0.4);
   box-shadow: 10px 15px 15px rgb(6, 70, 53, 0.2);
@@ -25,7 +25,7 @@
 }
 
 #product img {
-  height: 18vw;
+  height: 14vw;
   width: 16vw;
 }
 

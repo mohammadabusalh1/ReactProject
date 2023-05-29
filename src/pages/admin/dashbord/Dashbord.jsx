@@ -9,6 +9,7 @@ import manageOredres from "./imags/manageOredres.jpg";
 import ProductManagement from "./imags/ProductManagement.jpg";
 import AccountManagement from "./imags/AccountManagement.jpg";
 import Product from "../../../componanet/product/Product";
+import { Link } from "react-router-dom";
 const Dashbord = () => {
   const style = {
     background: "linear-gradient(0deg, transparent, hsl(0, 0%, 20%))",
@@ -66,8 +67,8 @@ function Services() {
         Our <span>Services</span>
       </h2>
       <div id="AdminServicesCont">
-        <Service img={ProductManagement} service="Products Management" />
-        <Service img={manageOredres} service="Orders Management" />
+        <Service img={ProductManagement} link="/admin/Products" service="Products Management" />
+        <Service img={manageOredres} link="/admin/Orders" service="Orders Management" />
         <Service img={AccountManagement} service="Account Management" />
       </div>
     </div>
@@ -79,7 +80,7 @@ function Service(props) {
     <div id="AdminService">
       <img src={props.img} alt="..." />
       <h6>{props.service}</h6>
-      <button>Manage</button>
+      <Link to={props.link}><button>Manage</button></Link>
     </div>
   );
 }

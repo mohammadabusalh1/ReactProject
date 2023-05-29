@@ -86,4 +86,10 @@ border-radius: 12px;
     background-color: var(--green);
     color: var(--white);
     cursor: pointer;
+    transition: 0.2s;
+}
+
+#act i:hover{
+    background-color: var(--black);
+    color: var(--white);
 }

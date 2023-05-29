@@ -87,3 +87,21 @@ h6{
 #links #iconLinks i:hover{
     opacity: 0.7;
 }
+
+#nav_cont{
+    position: relative;
+}
+
+#main_search{
+    position: absolute;
+    right: 1.5%;
+    border: 1px solid #ccc;
+    padding: 4px 8px;
+    border-radius: 4px;
+    top: -4vw;
+    transition: 0.5s;
+}
+
+#main_search.active{
+    top: 5.2vw;
+}

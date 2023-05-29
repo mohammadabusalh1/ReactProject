@@ -1,27 +1,73 @@
 import React from "react";
 import "./nav.css";
+import $ from "jquery";
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { useState } from "react";
+import Account from "../account/Account.jsx";
 
 const Nav = (props) => {
   let pages = props.pages;
-  pages = pages.map((page) => {
+  pages = pages.map((page, index) => {
     return (
-      <h6 style={{ color: props.style.color }}>{page}</h6>
-    )
+      <Link
+        key={index}
+        exact
+        to={
+          pages.length === 5
+            ? `/admin/${page.toLowerCase()}`
+            : `/${page.toLowerCase()}`
+        }
+      >
+        <h6 style={{ color: props.style.color }}>{page}</h6>
+      </Link>
+    );
   });
-  return (
-    <div id="nav" style={props.style}>
-      <h4>Garden.</h4>
-      <div id="links">
-        <div id="wordLinks">
-          {pages}
-        </div>
+  const showSearchClick = () => {
+    $("#main_search").toggleClass("active");
+  };
 
-        <div id="iconLinks">
-          <i style={{ color: props.style.color }} class="fa-solid fa-magnifying-glass"></i>
-          <i style={{ color: props.style.color }} class="fa-solid fa-cart-shopping"></i>
-          <i style={{ color: props.style.color }} class="fa-solid fa-user"></i>
+  const showAccount = () => {
+    $("#account").toggleClass("active");
+  }
+
+  return (
+    <div id="nav_cont">
+      <div id="nav" style={props.style}>
+        <Link to={pages.length == 4 ? "/" : "/admin"}>
+          <h4>Garden.</h4>
+        </Link>
+        <div id="links">
+          <div id="wordLinks">{pages}</div>
+
+          <div id="iconLinks">
+            <i
+              style={{ color: props.style.color }}
+              class="fa-solid fa-magnifying-glass"
+              id="main_search_button"
+              onClick={showSearchClick}
+            ></i>
+            <Link to={"/cart"}>
+              <i
+                style={{ color: props.style.color }}
+                class="fa-solid fa-cart-shopping"
+              ></i>
+            </Link>
+            <i
+              style={{ color: props.style.color }}
+              class="fa-solid fa-user"
+              onClick={showAccount}
+            ></i>
+          </div>
         </div>
       </div>
+      <input
+        type="text"
+        name="main_search"
+        id="main_search"
+        placeholder="#Search"
+      />
+      <Account />
     </div>
   );
 };

@@ -1,0 +1,104 @@
+:root {
+    --green: #064635;
+    --liteGreen: rgb(30, 131, 104);
+    --oring: #f0bb62;
+    --black: #222;
+    --white: #fff;
+    --liteBlack: #666;
+  }
+  
+  .about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--white);
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--black);
+  }
+  
+  input[type='text'],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--liteBlack);
+    border-radius: 5px;
+    font-size: 16px;
+    color: var(--black);
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  
+  button {
+    padding: 12px 20px;
+    background-color: var(--oring);
+    color: var(--black);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: var(--black);
+    color: var(--white);
+  }
+  
+  .product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+    margin-top: 30px;
+  }
+  
+  .product-item {
+    border: 1px solid var(--green);
+    padding: 20px;
+    text-align: center;
+    background-color: var(--white);
+    border-radius: 5px;
+    box-shadow: 10px 15px 15px rgba(6, 70, 53, 0.2);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .product-item:hover {
+    box-shadow: 10px 15px 15px rgba(6, 70, 53, 0.3);
+  }
+  
+  .product-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .product-item h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: var(--black);
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-item p {
+    margin-bottom: 5px;
+    color: var(--liteBlack);
+    font-size: 14px;
+  }
+  
+  .product-item p:first-child {
+    font-weight: bold;
+  }

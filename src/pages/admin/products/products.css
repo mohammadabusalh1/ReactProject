@@ -16,31 +16,86 @@
   flex-direction: column;
   gap: 3rem;
   width: 100%;
+  padding: 40px 0;
+  align-items: center;
 }
 
-#main h3{
-    text-align: center;
-}
-
-#category {
-  display: flex;
-  gap: 1.5rem;
-  overflow-x: auto;
-  border-bottom: 1px solid #ccc;
-  padding: 1rem;
-}
-
-#category h6 {
-  cursor: pointer;
+#main h3 {
+  text-align: center;
   color: var(--black);
 }
 
-#category h6:hover{
-  color: var(--green);
-}
-
-#MangmentHeroProducts{
+#MangmentHeroProducts {
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
+  justify-content: center;
+}
+
+#products_filter {
+  padding: 32px 20px;
+  border-right: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+#products_filter button {
+  background-color: var(--oring);
+  color: var(--black);
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 300;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#products_filter button:hover {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+#products_filter h4 {
+  font-weight: 600;
+  color: var(--black);
+}
+
+#products_filter div * {
+  color: var(--black);
+  display: block;
+}
+
+#products_filter div input,
+#products_filter div select {
+  cursor: pointer;
+  padding: 4px;
+}
+
+#products_filter div select {
+}
+
+#products_filter div label {
+  padding-bottom: 4px;
+}
+
+#price {
+  display: flex;
+  flex-direction: column;
+}
+
+#main #product {
+  border-radius: 4px;
+  border: 1px solid rgb(240, 187, 98, 0.2);
+}
+
+#main #product h6 {
+  color: var(--black);
+}
+
+#admin_products_search{
+  width: 40%;
+  padding: 8px 16px;
+  border-radius: 14px;
+  border: 1px solid #bbb;
 }
