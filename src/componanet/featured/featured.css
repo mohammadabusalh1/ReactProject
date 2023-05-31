@@ -34,7 +34,7 @@ h6 {
 }
 
 #featured_cont{
-  padding: 16vh 120px;
+  padding: 16vh 5vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -54,8 +54,12 @@ h6 {
   gap: 1.5rem;
 }
 
+#featured #best h4{
+  font-size: 1.5vw;
+}
+
 #featured #best p{
-  font-size: 14px;
+  font-size: 0.85vw;
 }
 
 #featured #best i{
@@ -68,9 +72,50 @@ h6 {
   color: var(--white);
   cursor: pointer;
   transition: 0.2s;
+  font-size: 1vw;
 }
 
 #featured #best i:hover{
   box-shadow: 5px 5px 10px rgb(34, 34, 34,0.15);
   background-color: var(--black);
+}
+
+@media screen and (max-width:992px) {
+  
+  #featured{
+    flex-direction: column;
+  }
+
+  #card{
+    background-color: rgb(221, 221, 221,0.35);
+    width: 80%;
+    padding: 24px 0;
+  }
+
+  #card > h6{
+    bottom: 1vw;
+  }
+
+  #act{
+    top: 1vw;
+  }
+}
+
+@media screen and (max-width:392px) {
+  #best a, #best h4 {
+    text-align: center;
+  }
+
+  #featured #best h4 {
+    font-size: 6vw;
+  }
+
+  #featured #best p{
+    font-size: 4vw;
+    text-align: center;
+  }
+
+  #featured #best i{
+    margin: 0;
+  }
 }

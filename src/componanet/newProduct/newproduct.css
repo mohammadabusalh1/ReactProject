@@ -20,14 +20,18 @@
 
 #new_product_cont {
   background-color: var(--liteOring);
-  padding: 4rem 0px 0rem 80px;
+  padding: 5rem 0px 5rem 80px;
   display: flex;
   gap: 8rem;
   align-items: center;
+  position: relative;
 }
 
 #new_product_cont img {
-  width: 120rem;
+  width: 36vw;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
 #product_info {
@@ -42,11 +46,14 @@
 
 #product_info h2 {
   color: var(--black);
+  font-size: 2.5vw;
 }
 
 #product_info p {
   line-height: 2rem;
   color: #444;
+  width: 55%;
+  font-size: 1vw;
 }
 
 #product_info h6 {
@@ -57,4 +64,30 @@
   cursor: pointer;
   font-weight: 500;
   text-align: center;
+}
+
+@media screen and (max-width:392px) {
+  #new_product_cont img {
+    display: none;
+  }
+
+  #new_product_cont{
+    padding: 24px;
+    justify-content: center;
+  }
+
+  #product_info p,#product_info h6{
+    width: 100%;
+    text-align: center;
+  }
+
+  #product_info h6{
+    font-size: 6vw;
+  }
+
+  #product_info h2{
+    font-size: 8vw;
+    width: 100%;
+    text-align: center;
+  }
 }

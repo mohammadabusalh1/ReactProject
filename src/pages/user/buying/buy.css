@@ -1,111 +1,68 @@
 :root {
-    --green: #064635;
-    --liteGreen: rgb(30, 131, 104);
-    --oring: #f0bb62;
-    --black: #222;
-    --white: #fff;
-    --liteBlack: #666;
-  }
-  
-  .container {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: var(--white);
-    border-radius: 5px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-  }
-  
-  .visa-image {
-    width: 150px;
-    height: 80px;
-    background-image: url('downloadddd.jpg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    margin-bottom: 20px;
-  }
-  
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: var(--black);
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Align labels and inputs to the start */
-    width: 100%;
-  }
-  
-  label {
-    margin-bottom: 8px;
-    color: var(--black);
-    font-weight: bold;
-    width: 100%;
-  }
-  
-  input {
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 3px;
-    border: 1px solid var(--liteBlack);
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
-  button {
-    padding: 10px 20px;
-    background-color: var(--oring);
-    color: var(--black);
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  
-  button:hover {
-    background-color: var(--black);
-    color: var(--white);
-  }
-  
-  button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-  
-  .error-message {
-    color: #f44336;
-    font-size: 14px;
-    margin-top: 10px;
-  }
-  
-  .google-pay-button {
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-  }
-  
-  .google-logo {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
-  }
-  
-  .google-pay {
-    padding: 10px 20px;
-    background-color: #4285f4;
-    color: var(--white);
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  
-  .google-pay:hover {
-    background-color: #357ae8;
-  }
-  
+  --green: #064635;
+  --liteGreen: rgb(30, 131, 104);
+  --oring: #f0bb62;
+  --black: #222;
+  --white: #fff;
+  --liteBlack: #666;
+}
+
+#Pay {
+  display: flex;
+  gap: 6rem;
+  padding: 12rem 120px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#Pay img {
+  width: 32vw;
+  height: 32vw;
+}
+
+.PayContainer {
+  padding: 20px;
+  background-color: var(--white);
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+}
+
+.PayContainer h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--black);
+  font-weight: 500;
+}
+
+.PayContainer label {
+  color: var(--black);
+}
+
+.PayContainer div {
+  width: 100%;
+}
+
+.PayContainer div input {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  border: 1px solid var(--liteBlack);
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 8px;
+}
+
+
+button:hover {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+

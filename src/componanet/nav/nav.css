@@ -40,10 +40,10 @@ h6{
     justify-content: space-between;
     align-items: center;
     z-index: 10;
-    position: sticky;
+    position: fixed;
+    top: 0;
     right: 0;
     left: 0;
-    top: 0;
     background-color: var(--white);
 }
 
@@ -104,4 +104,41 @@ h6{
 
 #main_search.active{
     top: 5.2vw;
+}
+
+@media screen and (max-width:832px) {
+    #links #wordLinks{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        padding: 1.5vw 0;
+        z-index: 9;
+        display: none;
+    }
+}
+
+@media screen and (max-width:392px) {
+    #nav{
+        padding: 24px;
+    }
+
+    #nav h4{
+        font-size: 6vw;
+    }
+
+    #links #iconLinks i{
+        font-size: 5vw;
+    }
+}
+
+@media screen and (max-width:212px) {
+    #nav{
+        padding: 12px;
+    }
 }

@@ -16,8 +16,9 @@ footer {
 #box_cont {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   padding: 40px 120px;
+  gap: 8rem;
+  justify-content: center;
 }
 
 .box {
@@ -64,4 +65,29 @@ footer {
 
 #creator h6 span {
   color: var(--mainColor);
+}
+
+@media screen and (max-width:392px) {
+  #box_cont{
+    padding: 24px;
+    gap: 3rem;
+    flex-direction: column;
+  }
+
+  .box h6{
+    font-size: 4vw;
+  }
+
+  .box a,.box p{
+    font-size: 2vw;
+  }
+
+  .box img{
+    height: 3rem;
+  }
+
+  .box i{
+    font-size: 8vw;
+  }
+  
 }

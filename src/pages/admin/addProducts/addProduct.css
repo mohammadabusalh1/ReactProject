@@ -6,6 +6,28 @@
     --white: #fff;
     --liteBlack: #666;
   }
+
+  #addProductCont{
+    display: flex;
+    padding: 40px 80px;
+    gap: 6rem;
+  }
+
+  
+  #addProductCont img{
+    width: 48vw;
+    height: 48vw;
+  }
+
+  .about-container  .form-group input, .about-container  .form-group textarea, .about-container  .form-group select  {
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid var(--liteBlack);
+    border-radius: 5px;
+    font-size: 16px;
+    color: var(--black);
+  }
   
   .about-container {
     display: flex;
@@ -13,29 +35,21 @@
     align-items: center;
     padding: 20px;
     background-color: var(--white);
+    width: 100%;
   }
   
   .form-group {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
+    width: 100%;
   }
   
   label {
-    font-weight: bold;
     margin-bottom: 5px;
     color: var(--black);
   }
   
-  input[type='text'],
-  textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid var(--liteBlack);
-    border-radius: 5px;
-    font-size: 16px;
-    color: var(--black);
-  }
   
   textarea {
     resize: vertical;
@@ -49,8 +63,8 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    font-weight: bold;
     transition: background-color 0.3s ease;
+    width: 100%;
   }
   
   button:hover {
