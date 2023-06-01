@@ -9,7 +9,7 @@
 
   #addProductCont{
     display: flex;
-    padding: 40px 80px;
+    padding: 10vw 80px;
     gap: 6rem;
   }
 

@@ -8,8 +8,8 @@ const Product = (props) => {
         <div>
           <h6>{props.title}</h6>
           <p>{props.pieceNum} pieces</p>
+          <button>Edit</button>
         </div>
-        <button>Edit</button>
       </div>
     </div>
   );

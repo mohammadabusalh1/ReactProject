@@ -3,6 +3,7 @@ import "./products.css";
 import Nav from "../../../componanet/nav/Nav";
 import Product from "../../../componanet/product/Product";
 import Footer from "../../../componanet/footer/Footer";
+import { Link } from "react-router-dom";
 const style = {
   borderBottom: "1px solid #ccc",
   boxShadow: "0px 2px 15px #ccc",
@@ -23,7 +24,7 @@ export default Products;
 function ProductsMangmentHero() {
   return (
     <div id="ProductsMangmentHero">
-      <div id="main">
+      <div id="ProductsMain">
         <h3>Your Products</h3>
         <input type="text" id="admin_products_search" placeholder="#Search" />
         <div id="MangmentHeroProducts">
@@ -72,10 +73,12 @@ function ProductsMangmentHero() {
             title="Product 9"
             pieceNum="9"
           />
-          <Product src="https://picsum.photos/200" title="Product 10" />
-          <Product src="https://picsum.photos/200" title="Product 11" />
-          <Product src="https://picsum.photos/200" title="Product 12" />
         </div>
+
+        <button>Show More</button>
+        <Link to="/admin/addProduct">
+          <i className="fas fa-plus" id="addNewProduct"></i>
+        </Link>
       </div>
     </div>
   );

@@ -10,18 +10,20 @@ import Account from "./componanet/account/Account";
 import About from "./componanet/aboutUs/About";
 import Nav from "./componanet/nav/Nav.jsx";
 import Footer from "./componanet/footer/Footer";
-import AddProduct from './pages/admin/addProducts/AddProduct.jsx';
+import AddProduct from "./pages/admin/addProducts/AddProduct.jsx";
 import Buy from "./pages/user/buying/Buy.jsx";
+import { AdminAbout } from "./pages/admin/adminAbout/AdminAbout";
 function App() {
   const style = {
     backgroundColor: "white",
   };
   let pages = ["Home", "Products", "About", "Contact"];
+  let adminPages = ["Home", "Products", "Orders", "About", "Contact"];
   return (
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Buy />} />
+          <Route path="/" element={<Home />} />
           <Route path="/Home" element={<Home />} />
           <Route path="/Cart" element={<Cart />} />
           <Route
@@ -39,6 +41,17 @@ function App() {
           <Route path="/admin/Home" element={<Dashbord />} />
           <Route path="/admin/Products" element={<Products />} />
           <Route path="/admin/Orders" element={<Order />} />
+          <Route path="/admin/addProduct" element={<AddProduct />} />
+          <Route
+            path="/admin/about"
+            element={
+              <>
+                <Nav style={style} pages={adminPages} />
+                <AdminAbout />
+                <Footer />
+              </>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </div>

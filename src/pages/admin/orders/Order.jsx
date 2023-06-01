@@ -90,41 +90,43 @@ const Order = () => {
 function OrderCard(props) {
   return (
     <div id="order_card">
-      <img src={props.img} alt="..." />
-      <div id="order_info">
-        <h6>Name: {props.name}</h6>
-        <h6>Quantity: {props.quantity}</h6>
-        <h6>Price: {props.price}</h6>
-        <h6>Date: {props.date}</h6>
-        <h6
-          style={{
-            color:
-              props.status === "Available"
-                ? "green"
-                : props.status === "Processed"
-                ? "orange"
-                : props.status === "Cancelled"
-                ? "black"
-                : "red",
-          }}
-        >
-          {props.status}
-        </h6>
-
-        {props.status === "Available" ? (
-          <div id="handelButton">
-            <button style={{ backgroundColor: "green" }}>Confirm</button>
-            <button style={{ backgroundColor: "red" }}>Cancel</button>
-          </div>
-        ) : props.status === "Late" ? (
-          <div id="handelButton">
-            <button style={{ backgroundColor: "green" }}>Confirm</button>
-            <button style={{ backgroundColor: "red" }}>Cancel</button>
-          </div>
-        ) : (
-          ""
-        )}
+      <div id="image_info">
+        <img src={props.img} alt="..." />
+        <div id="order_info">
+          <h6>Name: {props.name}</h6>
+          <h6>Quantity: {props.quantity}</h6>
+          <h6>Price: {props.price}</h6>
+          <h6>Date: {props.date}</h6>
+          <h6
+            style={{
+              color:
+                props.status === "Available"
+                  ? "green"
+                  : props.status === "Processed"
+                  ? "orange"
+                  : props.status === "Cancelled"
+                  ? "black"
+                  : "red",
+            }}
+          >
+            {props.status}
+          </h6>
+        </div>
       </div>
+
+      {props.status === "Available" ? (
+        <div id="handelButton">
+          <button style={{ backgroundColor: "#54B435" }} ><i className="fas fa-check"></i></button>
+          <button style={{ backgroundColor: "#CD1818" }} ><i className="fa-solid fa-x"></i></button>
+        </div>
+      ) : props.status === "Late" ? (
+        <div id="handelButton">
+          <button style={{ backgroundColor: "#54B435" }} ><i className="fas fa-check"></i></button>
+          <button style={{ backgroundColor: "#CD1818" }} ><i className="fa-solid fa-x"></i></button>
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 }
