@@ -66,3 +66,21 @@ button:disabled {
   cursor: not-allowed;
 }
 
+
+#buy_message{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 12px;
+  border: 1px solid var(--liteColor);
+  box-shadow: 5px 5px 10px #777;
+  background-color: var(--white);
+  border-radius: 8px;
+  width: 50%;
+  position: absolute;
+  top: 80%;
+  left: 25%;
+}

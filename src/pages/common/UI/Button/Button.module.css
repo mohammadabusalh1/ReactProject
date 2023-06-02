@@ -1,0 +1,18 @@
+:root {
+  --mainColor: #fed330;
+  --black: #222;
+  --liteColor: #777;
+  --white: #fff;
+  --primaryColor: #e74c3c;
+}
+
+button {
+  padding: 4px 8px;
+  background-color: var(--mainColor);
+  color: var(--white);
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 4px;
+}
+

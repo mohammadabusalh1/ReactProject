@@ -13,6 +13,9 @@ import Footer from "./componanet/footer/Footer";
 import AddProduct from "./pages/admin/addProducts/AddProduct.jsx";
 import Buy from "./pages/user/buying/Buy.jsx";
 import { AdminAbout } from "./pages/admin/adminAbout/AdminAbout";
+import { Contact } from "./pages/common/contact/Contact";
+import Login from "./pages/common/login/Login";
+import UserProduct from './pages/user/userProducts/UserProduct'
 function App() {
   const style = {
     backgroundColor: "white",
@@ -23,9 +26,12 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<UserProduct />} />
           <Route path="/Home" element={<Home />} />
+          <Route path="/Buy" element={<Buy />} />
           <Route path="/Cart" element={<Cart />} />
+          <Route path="/products" element={<UserProduct />} />
+          <Route path="/contact" element={<Contact pages={pages} />} />
           <Route
             path="/about"
             element={
@@ -42,6 +48,7 @@ function App() {
           <Route path="/admin/Products" element={<Products />} />
           <Route path="/admin/Orders" element={<Order />} />
           <Route path="/admin/addProduct" element={<AddProduct />} />
+          <Route path="/admin/contact" element={<Contact pages={adminPages} />} />
           <Route
             path="/admin/about"
             element={

@@ -9,23 +9,24 @@
 
 #account{
     flex-direction: column;
-    width: 12vw;
-    padding: 24px 12px;
+    width: 16vw;
+    padding: 24px 32px;
     align-items: center;
     gap: 1rem;
     border: 1px solid var(--liteBlack);
     border-radius: 8px;
-    position: absolute;
-    top: 105%;
-    right: 2rem;
+    position: fixed;
+    top: -100%;
+    right: 3rem;
     background-color: var(--white);
-    display: none;
-    transition: 0.3s;
-    z-index: 11;
+    transition: 0.5s;
+    z-index: 0;
+    display: flex;
 }
 
 #account.active{
-    display: flex;
+    top: 18%;
+    z-index: 11;
 }
 
 #account i{

@@ -2,6 +2,8 @@ import React from "react";
 import "./cart.css";
 import Nav from "../../../componanet/nav/Nav";
 import Footer from "../../../componanet/footer/Footer";
+import { Link } from "react-router-dom";
+
 const Cart = () => {
   const style = {
     backgroundColor: "white",
@@ -40,6 +42,7 @@ const Cart = () => {
             <p>Total</p>
             <p>$0.00</p>
           </div>
+          <Link to="/Buy"><button>Buy</button></Link>
         </div>
       </div>
       <Footer />

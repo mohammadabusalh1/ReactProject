@@ -24,12 +24,18 @@ const Nav = (props) => {
     );
   });
   const showSearchClick = () => {
-    $("#main_search").toggleClass("active");
+    if ($("#account").hasClass("active")) {
+      $("#account").toggleClass("active");
+    }
+    $("#main_search").toggleClass("active2");
   };
 
   const showAccount = () => {
+    if ($("#main_search").hasClass("active2")) {
+      $("#main_search").toggleClass("active2");
+    }
     $("#account").toggleClass("active");
-  }
+  };
 
   return (
     <div id="nav_cont">

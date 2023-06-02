@@ -89,21 +89,23 @@ h6{
 }
 
 #nav_cont{
-    position: relative;
 }
 
 #main_search{
-    position: absolute;
+    position: fixed;
     right: 1.5%;
     border: 1px solid #ccc;
     padding: 4px 8px;
     border-radius: 4px;
-    top: -4vw;
+    top: -5%;
+    width: 15%;
+    z-index: 0;
     transition: 0.5s;
 }
 
-#main_search.active{
-    top: 5.2vw;
+#main_search.active2{
+    top: 18%;
+    z-index: 11;
 }
 
 @media screen and (max-width:832px) {

@@ -114,7 +114,7 @@ h6 {
 
 #home #heroInfo button {
   margin-top: 24px;
-  width: 24%;
+  width: fit-content;
 }
 
 #home #point{
