@@ -1,0 +1,265 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;800&display=swap");
+
+:root {
+  --mainColor: #fed330;
+  --black: #222;
+  --liteColor: #777;
+  --white: #fff;
+  --primaryColor: #e74c3c;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  text-decoration: none;
+  border: none;
+}
+
+::-moz-selection {
+  /* Code for Firefox */
+  background: var(--mainColor);
+}
+
+::selection {
+  background: var(--mainColor);
+}
+
+h1 {
+  font-size: 54px;
+}
+
+h2 {
+  font-size: 46px;
+}
+
+h4 {
+  font-size: 36px;
+}
+
+h5 {
+  font-size: 24px;
+}
+
+h6 {
+  font-size: 18px;
+}
+
+
+.btn {
+  background-color: var(--mainColor);
+  padding: 4px 24px;
+  text-align: center;
+  color: var(--black);
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  font-size: 18px;
+}
+
+
+#box_cont {
+  padding: 40px 80px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2.8rem;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: top;
+  padding: 20px;
+  height: 12rem;
+}
+
+.box a {
+  color: var(--black);
+}
+
+.box i {
+  font-size: 32px;
+  padding-bottom: 20px;
+}
+
+.box h6 {
+  padding-bottom: 8px;
+}
+
+.box img {
+  height: 5rem;
+  cursor: pointer;
+}
+
+#creator {
+  background-color: var(--black);
+  text-align: center;
+  padding: 12px;
+}
+
+#creator h6 {
+  color: var(--white);
+  font-size: 16px;
+  word-spacing: 4px;
+}
+
+#creator h6 span {
+  color: var(--mainColor);
+}
+
+
+.loder{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 12;
+  background-color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#contact{
+    padding: 40px 80px;
+}
+
+#cont{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+}
+
+#cont img{
+    width: 50%;
+    height: 50%;
+}
+
+#contactInfo{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+#contactInfo textarea{
+  border: 1px solid var(--liteColor);
+  display: block;
+  margin: 12px 0;
+  padding: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#contactInfo input{
+border: 1px solid var(--liteColor);
+display: block;
+padding: 4px 8px;
+width: 100%;
+box-sizing: border-box;
+}
+
+#email_masseage{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 12px;
+  border: 1px solid var(--liteColor);
+  box-shadow: 5px 5px 10px #777;
+  background-color: var(--white);
+  border-radius: 8px;
+  width: 50%;
+  position: absolute;
+  top: 40%;
+  left: 25%;
+}
+
+/* 1400px to 1200px */
+@media (max-width: 1400px) {
+  #cont {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  #cont img {
+    width: 100%;
+    height: auto;
+  }
+
+  #contactInfo {
+    width: 100%;
+  }
+
+  #email_masseage {
+    width: 80%;
+    left: 10%;
+  }
+}
+
+/* 1200px to 992px */
+@media (max-width: 1200px) {
+  #cont {
+    gap: 1rem;
+  }
+}
+
+/* 992px to 768px */
+@media (max-width: 992px) {
+  #cont {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  #cont img {
+    display: block; /* Set the image to be displayed */
+    width: auto; /* Adjust the width as needed */
+    height: auto; /* Adjust the height as needed */
+  }
+
+  #contactInfo {
+    width: 100%;
+  }
+
+  #email_masseage {
+    width: 80%;
+    left: 10%;
+  }
+}
+
+/* 768px to 576px */
+@media (max-width: 768px) {
+  #contact {
+    padding: 20px;
+  }
+
+  #contactInfo textarea,
+  #contactInfo input {
+    margin-top: 20px; /* Add the top margin */
+  }
+
+  #email_masseage {
+    width: 90%;
+    left: 5%;
+  }
+}
+
+/* 576px to 276px */
+@media (max-width: 576px) {
+  #email_masseage {
+    width: 95%;
+    left: 2.5%;
+  }
+}

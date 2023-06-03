@@ -1,0 +1,398 @@
+:root {
+  --green: #064635;
+  --liteGreen: hwb(165 31% 45%);
+  --oring: #f0bb62;
+  --black: #222;
+  --white: #fff;
+  --liteBlack: #000;
+}
+ 
+#nav h4 {
+  color: var(--oring);
+}
+
+#myProducts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding: 80px 60px;
+  background-image: url("./imags/back2.jpg");
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#myProducts h2 {
+  color: var(--white);
+  text-shadow: 5px 5px 10px rgb(6, 70, 53, 0.3);
+}
+
+#myProducts h2 span {
+  color: var(--oring);
+}
+
+#products {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  width: fit-content;
+}
+
+#dashbord button {
+  width: 100%;
+  font-size: 14px;
+  background-color: var(--oring);
+  border: none;
+  padding: 8px 0;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 4px;
+}
+
+#myProducts > button{
+  width: 30%;
+  background-color: var(--white);
+  color: var(--black);
+  transition: 0.3;
+  border-radius: 4px;
+}
+
+
+#dashbord button:hover {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+#AdminServices {
+  background-color: #eee;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 80px 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 80vh;
+  gap: 6rem;
+}
+
+#AdminServices h2 {
+  color: var(--black);
+}
+
+#AdminServices h2 span{
+  color: var(--black);
+}
+
+#AdminServicesCont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10rem;
+}
+
+#AdminService {
+  background-color: var(--white);
+  padding: 32px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 10px 15px 15px rgb(6, 70, 53, 0.2);
+}
+
+#AdminService h6{
+  color: var(--green);
+  font-weight: 600;
+  font-size: 16px;
+  text-align: center;
+}
+
+#AdminService img {
+  width: 13vw;
+  height: 10vw;
+  border-radius: 8px;
+}
+
+
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+/* Default styles */
+/* Styles for screen width greater than 1400px */
+@media (min-width: 1401px) {
+  #AdminServicesCont {
+    gap: 10rem; /* Increase the gap between service items */
+  }
+
+  #AdminService {
+    margin-bottom: 0; /* Remove margin at the bottom */
+  }
+
+  #myProducts {
+    padding: 60px 40px;
+  }
+
+  #myProducts h2 {
+    font-size: 24px;
+  }
+
+  #products {
+    justify-content: flex-start;
+    width: 100%;
+  }
+}
+
+
+/* Styles for screen width 1400px to 1200px */
+@media (max-width: 1400px) {
+  #products {
+    width: 100%;
+    gap: 1rem;
+  }
+  
+  /* Update the width of each Product */
+  #products .product-container {
+    width: calc(33.33% - 0.75rem);
+    /* Add any other desired styles for the Product */
+  }
+
+  #AdminServices {
+    padding: 10px 15px;
+    margin-bottom: 70px;
+    margin-top: 70px;
+    gap: 0.5rem;
+  } 
+
+  
+}
+
+/* Styles for screen width 1200px to 992px */
+/* Styles for screen width 1200px to 992px */
+/* Styles for screen width 1200px to 992px */
+@media (max-width: 1200px) {
+  /* Update the Services section */
+  #AdminServicesCont {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    height: auto;
+  }
+  
+  #AdminServices {
+    padding: 10px 15px;
+    margin-bottom: 70px;
+    margin-top: 70px;
+    gap: 0.5rem;
+  } 
+   /* Update the Service container */
+  #AdminService {
+    padding: 24px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 10px 15px 15px rgb(6, 70, 53, 0.2);
+    margin-bottom: 30px;
+  }
+
+  /* Update the font size and other styles for the Service title */
+  #AdminService h6 {
+    font-size: 16px;
+    /* Add any other desired styles for the title */
+  }
+
+  /* Update the Product container */
+  #products {
+    justify-content: center;
+    width: 100%;
+  }
+  
+  /* Update the width of each Product */
+  #products .product-container {
+    width: calc(50% - 0.75rem);
+    /* Add any other desired styles for the Product */
+  }
+}
+
+
+
+/* Styles for screen width 992px to 768px */
+@media (max-width: 992px) {
+
+  #dashbord .hero-container {
+    text-align: center;
+    height: 300px;
+
+  }
+
+  #dashbord .hero-container h2 {
+    font-size: 24px;
+  }
+
+  #dashbord .hero-container p {
+    font-size: 14px;
+  }
+  
+
+
+  #myProducts {
+    padding: 30px 20px;
+  }
+
+  #myProducts h2 {
+    font-size: 20px;
+  }
+
+  #products {
+    justify-content: center;
+    width: 100%;
+  }
+
+  #AdminServices {
+    padding: 60px 80px;
+    gap: 4rem;
+    margin-bottom: 40px;
+  }
+
+  #AdminServicesCont {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    height: 70px;
+
+  }
+  
+}
+
+/* Styles for screen width 768px to 576px */
+@media (max-width: 768px) {
+
+
+  #dashbord .hero-container {
+    text-align: center;
+    height: 200px;
+
+  }
+
+  #dashbord .hero-container p {
+    font-size: 18px;
+    /* Add your desired styles for the paragraph text */
+    /* For example, to change the text color to red */
+    color: red;
+    /* To change the text alignment to center */
+    text-align: center;
+    /* To add a margin to the bottom of the paragraph */
+    margin-bottom: 10px;
+  }
+  
+
+  /* subtitle="
+  title="Far
+  paragraph=
+  buttonText */
+
+  #myProducts {
+    padding: 20px 10px;
+  }
+
+  #myProducts h2 {
+    font-size: 18px;
+  }
+
+  #products {
+    justify-content: center;
+    width: 100%;
+  }
+
+  #dashbord button {
+    width: 100%;
+    font-size: 12px;
+    padding: 6px 0;
+  }
+
+  #myProducts > button {
+    width: 50%;
+  }
+
+  #AdminServices {
+    padding: 40px 60px;
+    gap: 3rem;
+  }
+
+  #AdminServicesCont {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  #AdminService img {
+    width: 16vw;
+    height: 12vw;
+  }
+  #AdminServicesCont {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    height: 50px;
+
+  }
+}
+
+/* Styles for screen width 576px to 276px */
+@media (max-width: 576px) {
+  #myProducts {
+    padding: 20px;
+  }
+
+  #myProducts h2 {
+    font-size: 16px;
+  }
+
+  #products {
+    justify-content: center;
+    width: 100%;
+  }
+
+  #dashbord button {
+    width: 100%;
+    font-size: 10px;
+    padding: 4px 0;
+  }
+
+  #myProducts > button {
+    width: 70%;
+  }
+
+  #AdminServices {
+    padding: 10px 15px;
+    margin-bottom: 70px;
+    margin-top: 70px;
+    gap: 0.5rem;
+  }
+
+  #AdminService img {
+    width: 6vw;
+    height: 4vw;
+  }
+
+  #AdminServicesCont {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  #AdminServicesCont {
+    display: grid;
+    grid-template-columns:  1fr 1fr;
+    gap: 0.5rem;
+    height: 40px;
+
+  }
+
+  
+}
