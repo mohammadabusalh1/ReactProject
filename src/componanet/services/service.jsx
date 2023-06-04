@@ -4,6 +4,7 @@ import offer from "./imgs/offer.png";
 import client from "./imgs/client.png";
 import cet from "./imgs/cetogary.jpg";
 import products from "./imgs/products.jpg";
+import { Link } from "react-router-dom";
 
 const Service = () => {
   return (
@@ -15,6 +16,7 @@ const Service = () => {
         <ServiceBox
           title="Products"
           img={products}
+          link="/products"
           paragraph="Browse our selection today and discover the difference that locally grown, fresh vegetables can make in your meals"
         />
         <ServiceBox
@@ -43,7 +45,7 @@ function ServiceBox(props) {
       <img src={props.img} alt="..." />
       <h6>{props.title}</h6>
       <p>{props.paragraph}</p>
-      <span>Read more</span>
+      <Link to={props.link}><span>Read more</span></Link>
     </div>
   );
 }

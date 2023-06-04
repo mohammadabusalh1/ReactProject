@@ -3,10 +3,11 @@ import "./addProduct.css";
 import Nav from "../../../componanet/nav/Nav";
 import Footer from "../../../componanet/footer/Footer";
 import addProduct from "./img/addProduct.jpg";
-import ProductService from "../../../service/ProductService";
+import ProductService from "../../../service/Service";
 import axios from "axios";
 const About = () => {
   const PRODUCT_API_URL = "http://localhost:8090/api/v1/products";
+  const token = localStorage.getItem("accessToken");
 
   const style = {
     borderBottom: "1px solid #ccc",
@@ -57,7 +58,9 @@ const About = () => {
 
     axios
       .post(PRODUCT_API_URL, formData, {
-        headers: { Accept: "application/json" },
+        headers: {
+          Accept: "application/json"
+        },
       })
       .then((response) => {
         console.log(response.data);

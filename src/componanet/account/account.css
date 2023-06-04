@@ -44,6 +44,11 @@
     border-bottom: 1px solid #ddd;
 }
 
+#account a{
+    width: 100%;
+    text-align: center;
+}
+
 #account button{
     width: 90%;
     padding: 4px 8px;

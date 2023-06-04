@@ -1,19 +1,9 @@
 import { useEffect, useState } from "react";
 import "./userProduct.css";
-import ProductCard from "./ProductsCard";
-import SearchIcon from "./search.svg";
 import Nav from "../../../componanet/nav/Nav";
 import Footer from "../../../componanet/footer/Footer";
-// 2ae39f71
-const API_URL = "http://www.omdbapi.com?apikey=2ae39f71";
-const movie1 = {
-  Title: "Fighting, Flying and Driving: The Stunts of Spiderman 3",
-  Year: "2007",
-  imdbID: "tt1132238",
-  Type: "movie",
-  Poster:
-    "https://m.media-amazon.com/images/M/MV5BNTI3NDE1ZmEtMTRiMS00YTY4LTk0OGItNjY4YmI0MDM4OGM4XkEyXkFqcGdeQXVyODE2NDgwMzM@._V1_SX300.jpg",
-};
+import Service from "../../../service/Service";
+import Card from "../../../componanet/cardFut/Card";
 
 const style = {
   backgroundColor: "white",
@@ -23,25 +13,30 @@ let pages = ["Home", "Products", "About", "Contact"];
 const UserProduct = () => {
   const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-
-  const searchpr = async (title) => {
-    const response = await fetch(`${API_URL}&s=${title}`);
-    const data = await response.json();
-
-    if (data.Search) {
-      const filteredProducts = data.Search.filter((movie) =>
-        movie.Title.toLowerCase().includes(title.toLowerCase())
-      );
-      setProducts(filteredProducts);
-    } else {
-      setProducts([]);
-    }
-  };
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
-    searchpr("Spiderman");
+    Service.getAllProducts()
+      .then((response) => {
+        setProducts(() => response.data);
+        setFilteredProducts(() => response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
 
+  const search = (e) => {
+    setSearchTerm(() => e);
+    if (searchTerm != "") {
+      filteredProducts = products.filter((e) => {
+        return e.product_title.toLowerCase().includes(searchTerm.toLowerCase());
+      });
+      setFilteredProducts(() => filteredProducts);
+    } else {
+      setFilteredProducts(() => products);
+    }
+  };
   return (
     <>
       <Nav style={style} pages={pages} />
@@ -52,18 +47,32 @@ const UserProduct = () => {
           <input
             placeholder="Search for a product"
             value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            onChange={(e) => search(e.target.value)}
           />
           <i
-            class="fa-solid fa-magnifying-glass"
-            onClick={() => searchpr(searchTerm)}
+            className="fa-solid fa-magnifying-glass"
+            onClick={search(searchTerm)}
           ></i>
         </div>
         {products.length > 0 ? (
           <div className="container">
-            {products.map((movie) => (
-              <ProductCard key={movie.imdbID} movie={movie} />
-            ))}
+            {filteredProducts.map((e) => {
+              const style = {
+                backgroundColor: "rgb(221, 221, 221,0.35)",
+                border: "1px solid #ccc",
+                padding: "32px 40px",
+              };
+              return (
+                <Card
+                  key={e.product_id}
+                  id={e.product_id}
+                  img={e.product_img}
+                  title={e.product_title}
+                  price={e.product_price}
+                  style={style}
+                />
+              );
+            })}
           </div>
         ) : (
           <div className="empty">

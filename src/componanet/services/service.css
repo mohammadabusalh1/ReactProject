@@ -54,7 +54,7 @@ h6 {
 }
 
 #box {
-  padding: 24px;
+  padding: 3vw;
   width: 25%;
   border: 1px solid rgb(240, 187, 98, 0.6);
   border-radius: 8px;
@@ -63,7 +63,7 @@ h6 {
   align-items: center;
   gap: 1rem;
   transition: 0.3s;
-  height: 18rem;
+  height: fit-content;
   position: relative;
 }
 
@@ -73,11 +73,11 @@ h6 {
   color: var(--liteBlack);
 }
 
-#box span {
+#box a {
   cursor: pointer;
   transition: 0.3s;
   position: absolute;
-  bottom: 24px;
+  bottom: 12px;
 }
 
 #box span:hover {

@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import $ from "jquery";
 
 const Buy = () => {
+  console.log(localStorage.getItem("accessToken"));
   const style = {
     backgroundColor: "white",
     boxShadow: "0px 2px 15px #ccc",

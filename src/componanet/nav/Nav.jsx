@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
 import Account from "../account/Account.jsx";
+import Acount2 from "../account/Acount2";
 
 const Nav = (props) => {
   let pages = props.pages;
@@ -34,7 +35,9 @@ const Nav = (props) => {
     if ($("#main_search").hasClass("active2")) {
       $("#main_search").toggleClass("active2");
     }
-    $("#account").toggleClass("active");
+    const roleID = localStorage.getItem("roleId");
+    if (roleID == null) $("#account").toggleClass("active");
+    else $("#account2").toggleClass("active");
   };
 
   return (
@@ -53,7 +56,7 @@ const Nav = (props) => {
               id="main_search_button"
               onClick={showSearchClick}
             ></i>
-            <Link to={"/cart"}>
+            <Link to="/cart">
               <i
                 style={{ color: props.style.color }}
                 class="fa-solid fa-cart-shopping"
@@ -74,6 +77,7 @@ const Nav = (props) => {
         placeholder="#Search"
       />
       <Account />
+      <Acount2 />
     </div>
   );
 };
