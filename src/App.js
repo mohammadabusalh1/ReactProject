@@ -1,9 +1,13 @@
 import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { AuthProvider } from "react-auth-kit";
+import { RequireAuth } from "react-auth-kit";
+
 import Home from "./pages/user/home/Home";
 import Dashbord from "./pages/admin/dashbord/Dashbord";
 import Order from "./pages/admin/orders/Order";
 import Products from "./pages/admin/products/Products";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ShowProduct from "./pages/user/showProduct/ShowProduct";
 import Cart from "./pages/user/cart/Cart";
 import Account from "./componanet/account/Account";
@@ -16,25 +20,28 @@ import { AdminAbout } from "./pages/admin/adminAbout/AdminAbout";
 import { Contact } from "./pages/common/contact/Contact";
 import Login from "./pages/common/login/Login";
 import UserProduct from "./pages/user/userProducts/UserProduct";
+import UserProfile from "./pages/common/account/UserProfile";
 import Service from "./service/Service";
-import { useEffect, useState } from "react";
-import { AuthProvider } from "react-auth-kit";
-import { RequireAuth } from "react-auth-kit";
+
 function App() {
   const style = {
     backgroundColor: "white",
   };
-  let pages = ["Home", "Products", "About", "Contact"];
-  let adminPages = ["Home", "Products", "Orders", "About", "Contact"];
 
-  const [roleId, setRoleId] = useState(localStorage.getItem("roleId"));
-  console.log(roleId);
+  const pages = ["Home", "Products", "About", "Contact"];
+  const adminPages = ["Home", "Products", "Orders", "About", "Contact"];
+
+  const [roleId, setRoleId] = useState(0);
+
+  useEffect(() => {
+    setRoleId(localStorage.getItem("roleId"));
+  }, []);
 
   return (
     <div>
       <AuthProvider
-        authType={"cookie"}
-        authName={"_auth"}
+        authType="cookie"
+        authName="_auth"
         cookieDomain={window.location.hostname}
         cookieSecure={false}
       >
@@ -43,13 +50,7 @@ function App() {
             <Route
               path="/login"
               element={
-                roleId != null && roleId != "" && roleId == 1 ? (
-                  <Home />
-                ) : roleId != null && roleId != "" && roleId == 2 ? (
-                  <Dashbord />
-                ) : (
-                  <Login />
-                )
+                roleId == 1 ? <Home /> : roleId == 2 ? <Dashbord /> : <Login />
               }
             />
             <Route path="/" element={<Home />} />
@@ -57,11 +58,23 @@ function App() {
             <Route
               path="/Buy"
               element={
-                roleId != null &&
-                roleId != "" &&
-                roleId == 1 && (
-                  <RequireAuth loginPath={"/login"}>
+                roleId == 2 ? (
+                  <Dashbord />
+                ) : (
+                  <RequireAuth loginPath="/login">
                     <Buy />
+                  </RequireAuth>
+                )
+              }
+            />
+            <Route
+              path="/account"
+              element={
+                roleId == 2 ? (
+                  <Dashbord />
+                ) : (
+                  <RequireAuth loginPath="/login">
+                    <UserProfile pages={pages} />
                   </RequireAuth>
                 )
               }
@@ -69,7 +82,7 @@ function App() {
             <Route
               path="/Cart"
               element={
-                <RequireAuth loginPath={"/login"}>
+                <RequireAuth loginPath="/login">
                   <Cart />
                 </RequireAuth>
               }
@@ -89,10 +102,10 @@ function App() {
             <Route
               path="/Products/1"
               element={
-                roleId != null &&
-                roleId != "" &&
-                roleId == 2 && (
-                  <RequireAuth loginPath={"/login"}>
+                roleId == 2 ? (
+                  <Dashbord />
+                ) : (
+                  <RequireAuth loginPath="/login">
                     <ShowProduct />
                   </RequireAuth>
                 )
@@ -100,15 +113,23 @@ function App() {
             />
             <Route
               path="/admin"
-              element={roleId == 2 ? <Dashbord /> : <Login />}
+              element={
+                roleId == 1 ? (
+                  <Home />
+                ) : (
+                  <RequireAuth loginPath="/login">
+                    <Dashbord />
+                  </RequireAuth>
+                )
+              }
             />
             <Route
               path="/admin/Home"
               element={
-                roleId != null &&
-                roleId != "" &&
-                roleId == 2 && (
-                  <RequireAuth loginPath={"/login"}>
+                roleId == 1 ? (
+                  <Home />
+                ) : (
+                  <RequireAuth loginPath="/login">
                     <Dashbord />
                   </RequireAuth>
                 )
@@ -117,10 +138,10 @@ function App() {
             <Route
               path="/admin/Products"
               element={
-                roleId != null &&
-                roleId != "" &&
-                roleId == 2 && (
-                  <RequireAuth loginPath={"/login"}>
+                roleId == 1 ? (
+                  <Home />
+                ) : (
+                  <RequireAuth loginPath="/login">
                     <Products />
                   </RequireAuth>
                 )
@@ -129,10 +150,10 @@ function App() {
             <Route
               path="/admin/Orders"
               element={
-                roleId != null &&
-                roleId != "" &&
-                roleId == 2 && (
-                  <RequireAuth loginPath={"/login"}>
+                roleId == 1 ? (
+                  <Home />
+                ) : (
+                  <RequireAuth loginPath="/login">
                     <Order />
                   </RequireAuth>
                 )
@@ -141,10 +162,10 @@ function App() {
             <Route
               path="/admin/addProduct"
               element={
-                roleId != null &&
-                roleId != "" &&
-                roleId == 2 && (
-                  <RequireAuth loginPath={"/login"}>
+                roleId == 1 ? (
+                  <Home />
+                ) : (
+                  <RequireAuth loginPath="/login">
                     <AddProduct />
                   </RequireAuth>
                 )

@@ -1,24 +1,67 @@
 import React from "react";
 import "./card.css";
 import { useNavigate } from "react-router";
+import axios from "axios";
+import { useState } from "react";
 
 const Card = (props) => {
   const navigate = useNavigate();
+
+  const [qun, setQun] = useState(1);
+
   const addToCart = () => {
-    const id = props.product_id;
-    if (localStorage.getItem("roleId") == 1) {
-      
+    const roleId = localStorage.getItem("roleId");
+    console.log(roleId);
+    if (roleId != "null") {
+      const productId = props.product_id;
+      const cartId = localStorage.getItem("cart_id");
+      const token = localStorage.getItem("refreshToken");
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+
+      const cartItem = {
+        cart__id: cartId,
+        product_id: productId,
+        quantity: qun,
+      };
+
+
+      // Make an API request to add the product to the cart
+      axios
+        .post(`http://localhost:8090/api/v1/productsCart`, cartItem, config)
+        .then((response) => {
+          alert("Product added to cart successfully");
+        })
+        .catch((error) => {
+          alert("Prodcut In Your cart");
+        });
     } else {
       navigate("/login");
     }
   };
+
   return (
     <div id="card" style={props.style}>
-      <img src={props.img} />
-      <h6 id="Card_title">{props.title}</h6>
+      <img src={props.img} alt="Product" />
+      <h6>{props.title}</h6>
+      <input
+        type="number"
+        name="qun"
+        id="qun"
+        value={qun}
+        onChange={(e) => setQun(e.target.value)}
+      />
+
       <div id="act">
         <h6>{props.price}$</h6>
-        <i class="fa fa-cart-plus" aria-hidden="true" onClick={addToCart}></i>
+        <i
+          className="fa fa-cart-plus"
+          aria-hidden="true"
+          onClick={addToCart}
+        ></i>
       </div>
     </div>
   );

@@ -42,6 +42,7 @@ const Featured = () => {
               img={e.product_img}
               title={e.product_title}
               price={e.product_price}
+              product_id={e.product_id}
             />
           );
         })}

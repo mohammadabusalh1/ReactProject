@@ -43,8 +43,9 @@
 #MangmentHeroProducts {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 3rem;
   justify-content: center;
+  padding: 0 80px;
 }
 
 #products_filter {

@@ -85,20 +85,6 @@ h6 {
   #featured{
     flex-direction: column;
   }
-
-  #card{
-    background-color: rgb(221, 221, 221,0.35);
-    width: 80%;
-    padding: 24px 0;
-  }
-
-  #card > h6{
-    bottom: 1vw;
-  }
-
-  #act{
-    top: 1vw;
-  }
 }
 
 @media screen and (max-width:392px) {

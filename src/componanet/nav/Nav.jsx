@@ -1,13 +1,12 @@
 import React from "react";
 import "./nav.css";
 import $ from "jquery";
-import { Link } from "react-router-dom";
-import { useEffect } from "react";
-import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Account from "../account/Account.jsx";
 import Acount2 from "../account/Acount2";
 
 const Nav = (props) => {
+  const navigate = useNavigate();
   let pages = props.pages;
   pages = pages.map((page, index) => {
     return (
@@ -36,8 +35,20 @@ const Nav = (props) => {
       $("#main_search").toggleClass("active2");
     }
     const roleID = localStorage.getItem("roleId");
-    if (roleID == null) $("#account").toggleClass("active");
-    else $("#account2").toggleClass("active");
+    if (roleID == null) {
+      $("#account").toggleClass("active");
+      $("#account2").removeClass("active");
+    } else {
+      $("#account2").toggleClass("active");
+      $("#account").removeClass("active");
+    }
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      const searchTerm = event.target.value;
+      navigate(`/products?search=${encodeURIComponent(searchTerm)}`);
+    }
   };
 
   return (
@@ -50,18 +61,22 @@ const Nav = (props) => {
           <div id="wordLinks">{pages}</div>
 
           <div id="iconLinks">
-            <i
-              style={{ color: props.style.color }}
-              class="fa-solid fa-magnifying-glass"
-              id="main_search_button"
-              onClick={showSearchClick}
-            ></i>
-            <Link to="/cart">
+            {pages.length == 4 && (
               <i
                 style={{ color: props.style.color }}
-                class="fa-solid fa-cart-shopping"
+                class="fa-solid fa-magnifying-glass"
+                id="main_search_button"
+                onClick={showSearchClick}
               ></i>
-            </Link>
+            )}
+            {pages.length == 4 && (
+              <Link to="/cart">
+                <i
+                  style={{ color: props.style.color }}
+                  class="fa-solid fa-cart-shopping"
+                ></i>
+              </Link>
+            )}
             <i
               style={{ color: props.style.color }}
               class="fa-solid fa-user"
@@ -75,6 +90,7 @@ const Nav = (props) => {
         name="main_search"
         id="main_search"
         placeholder="#Search"
+        onKeyDown={handleKeyDown}
       />
       <Account />
       <Acount2 />

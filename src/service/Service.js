@@ -7,7 +7,6 @@ const Products_API = "http://localhost:8090/api/v1/products";
 
 const token = localStorage.getItem("accessToken");
 const refresh = localStorage.getItem("refreshToken") + "";
-console.log(refresh);
 
 class ProductService {
   saveProduct(product) {

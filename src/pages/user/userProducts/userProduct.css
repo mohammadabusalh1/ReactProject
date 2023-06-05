@@ -19,16 +19,23 @@
 .app {
   padding: 8rem 0;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   flex-direction: column;
+  min-height: 120vh;
+}
+
+.app > button {
+  width: fit-content;
+  padding: 12px 8rem;
+  margin-top: 3vw;
 }
 
 .search {
   display: flex;
   justify-content: center;
-  align-items: center;
   width: 70%;
+  height: fit-content;
 }
 
 .search i {
@@ -43,6 +50,7 @@
 .search input {
   width: 70%;
   border-radius: 10px 0px 0px 10px;
+  margin: 0;
 }
 
 .empty {
@@ -62,16 +70,16 @@
 
 .container {
   width: 100%;
-  margin-top: 3rem;
+  margin-top: 1.5rem;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
-  padding: 40px 80px;
-
+  padding: 40px 0px 40px 16vw;
+  gap: 3rem;
 }
 
-.movie{
+.movie {
   padding: 24px;
   border-radius: 4px;
   border: 1px solid #bbb;
@@ -80,17 +88,66 @@
   align-items: center;
 }
 
-.movie div h3{
+.movie div h3 {
   text-align: center;
 }
 
-.movie div p{
+.movie div p {
   text-align: center;
   width: 16vw;
   background-color: var(--green);
   color: var(--white);
 }
 
+.app {
+  /* Your existing styles for the app container */
+}
+
+.filter-section {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f2f2f2;
+  position: absolute;
+  left: 2vw;
+  top: 40%;
+}
+
+.filter-section h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.filter-option {
+  margin-bottom: 10px;
+}
+
+.filter-option label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.filter-option select,
+.filter-option input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.filter-option button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.filter-option button:hover {
+  background-color: #45a049;
+}
 
 @media screen and (max-width: 600px) {
   .app {
