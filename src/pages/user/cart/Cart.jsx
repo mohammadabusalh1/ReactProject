@@ -38,12 +38,15 @@ const Cart = () => {
     axios
       .get(url, config)
       .then((response) => {
-        localStorage.setItem("cart_id",response.data.cart.id);
+        localStorage.setItem("cart_id", response.data.cart.id);
         axios
-          .get("http://localhost:8090/api/v1/productsCart/"+response.data.cart.id, config)
+          .get(
+            "http://localhost:8090/api/v1/productsCart/" +
+              response.data.cart.id,
+            config
+          )
           .then((response) => {
             setCartItems(response.data);
-            console.log(response.data);
           })
           .catch((error) => {
             console.log(error);
@@ -148,13 +151,16 @@ function CartCard(props) {
   };
 
   return (
-    <div id="cart_card">
-      <i className="fas fa-times" onClick={handleRemoveItem}></i>
-      <img src={props.img} alt="..." />
-      <h6>Product Name: {props.name}</h6>
-      <p>${props.price}</p>
-      <h6>Quantity: {props.quantity}</h6>
-      <p>{subtotal}</p>
-    </div>
+    <>
+      <div id="cart_card">
+        <i className="fas fa-times" onClick={handleRemoveItem}></i>
+        <img src={props.img} alt="..." />
+        <h6>Product Name: {props.name}</h6>
+        <p>${props.price}</p>
+        <h6>Quantity: {props.quantity}</h6>
+        <p>{subtotal}</p>
+      </div>
+      <hr />
+    </>
   );
 }

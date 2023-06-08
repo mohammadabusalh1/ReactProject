@@ -46,7 +46,7 @@ i {
 
 #cart_contaner {
   display: flex;
-  padding: 8rem 80px;
+  padding: 12rem 80px;
   justify-content: space-between;
   position: relative;
 }
@@ -81,7 +81,7 @@ i {
 
 #cart_card img {
   width: 130px;
-  height: 180px;
+  height: 160px;
   border-radius: 4px;
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.15);
 }

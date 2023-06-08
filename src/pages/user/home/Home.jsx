@@ -11,12 +11,17 @@ import NewProduct from "../../../componanet/newProduct/NewProduct";
 import About from "../../../componanet/aboutUs/About";
 import Footer from "../../../componanet/footer/Footer";
 import { Link } from "react-router-dom";
+import $ from 'jquery';
 
 const Home = () => {
  const style = {
     backgroundColor: "white",
   }
   let pages = ["Home","Products", "About", "Contact"];
+
+  $("#AddedToCart").fadeOut();
+  $("#inCart").fadeOut();
+
   return (
     <div id="home">
       <Nav style={style} pages={pages} />
@@ -27,6 +32,13 @@ const Home = () => {
       <NewProduct/>
       <About/>
       <Footer/>
+      <div className="added" id="inCart">
+        <h4>Prodcut In Your cart !!</h4>
+      </div>
+
+      <div className="added" id="AddedToCart">
+        <h4>Product added to cart successfully</h4>
+      </div>
     </div>
   );
 };

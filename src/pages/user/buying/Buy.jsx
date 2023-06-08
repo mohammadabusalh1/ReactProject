@@ -5,9 +5,10 @@ import Nav from "../../../componanet/nav/Nav.jsx";
 import Footer from "../../../componanet/footer/Footer.jsx";
 import { useEffect } from "react";
 import $ from "jquery";
+import axios from "axios";
+import { useState } from "react";
 
 const Buy = () => {
-  console.log(localStorage.getItem("accessToken"));
   const style = {
     backgroundColor: "white",
     boxShadow: "0px 2px 15px #ccc",
@@ -25,6 +26,66 @@ const Buy = () => {
     }, 3000);
     $("#contact_title").css("border", "");
     $("#mass").css("border", "");
+
+    const token = localStorage.getItem("refreshToken");
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    const cartId = localStorage.getItem("cart_id");
+
+    const username = localStorage.getItem("username");
+    const url2 = "http://localhost:8090/api/v1/mainusers/name/" + username;
+    axios
+      .get(url2, config)
+      .then((response2) => {
+        const userId = response2.data.user_id;
+
+        const url = "http://localhost:8090/api/v1/productsCart/" + cartId;
+        axios
+          .get(url, config)
+          .then((response1) => {
+            const arr = response1.data;
+            arr.forEach((e) => {
+              const ob = {
+                productId: e.product.product_id,
+                quantity: e.quantity,
+                userId: userId,
+              };
+
+              const url3 = "http://localhost:8090/api/v1/orders";
+              axios
+                .post(url3, ob, config)
+                .then((response) => {
+                  const url4 =
+                    "http://localhost:8090/api/v1/productsCart/" +
+                    response.data.user.cart.id +
+                    "/products/" +
+                    response.data.product.product_id;
+
+                  axios
+                    .delete(url4, config)
+                    .then((response) => {
+                      console.log(response);
+                    })
+                    .catch((error) => {
+                      console.log(error);
+                    });
+                })
+                .catch((error) => {
+                  console.log(error);
+                });
+            });
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (

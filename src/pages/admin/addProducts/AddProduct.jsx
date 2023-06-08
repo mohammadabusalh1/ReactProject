@@ -24,7 +24,7 @@ const About = () => {
     product_quantity: 0.0,
     type: "",
     product_img: null,
-    supplier_supplier_id: 0,
+    supplier_supplier_id: 1,
   });
 
   const changeProductState = (e) => {

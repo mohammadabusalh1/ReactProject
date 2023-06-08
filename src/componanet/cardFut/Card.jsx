@@ -3,6 +3,7 @@ import "./card.css";
 import { useNavigate } from "react-router";
 import axios from "axios";
 import { useState } from "react";
+import $ from "jquery";
 
 const Card = (props) => {
   const navigate = useNavigate();
@@ -28,15 +29,20 @@ const Card = (props) => {
         quantity: qun,
       };
 
-
       // Make an API request to add the product to the cart
       axios
         .post(`http://localhost:8090/api/v1/productsCart`, cartItem, config)
         .then((response) => {
-          alert("Product added to cart successfully");
+          $("#AddedToCart").fadeIn();
+          setTimeout(() => {
+            $("#AddedToCart").fadeOut();
+          }, 3000);
         })
         .catch((error) => {
-          alert("Prodcut In Your cart");
+          $("#inCart").fadeIn();
+          setTimeout(() => {
+            $("#inCart").fadeOut();
+          }, 3000);
         });
     } else {
       navigate("/login");
@@ -47,16 +53,16 @@ const Card = (props) => {
     <div id="card" style={props.style}>
       <img src={props.img} alt="Product" />
       <h6>{props.title}</h6>
-      <input
-        type="number"
-        name="qun"
-        id="qun"
-        value={qun}
-        onChange={(e) => setQun(e.target.value)}
-      />
 
       <div id="act">
         <h6>{props.price}$</h6>
+        <input
+          type="number"
+          name="qun"
+          id="qun"
+          value={qun}
+          onChange={(e) => setQun(e.target.value)}
+        />
         <i
           className="fa fa-cart-plus"
           aria-hidden="true"

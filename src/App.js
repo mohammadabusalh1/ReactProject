@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { AuthProvider } from "react-auth-kit";
+
 import { RequireAuth } from "react-auth-kit";
 
 import Home from "./pages/user/home/Home";
@@ -39,155 +39,143 @@ function App() {
 
   return (
     <div>
-      <AuthProvider
-        authType="cookie"
-        authName="_auth"
-        cookieDomain={window.location.hostname}
-        cookieSecure={false}
-      >
-        <BrowserRouter>
-          <Routes>
-            <Route
-              path="/login"
-              element={
-                roleId == 1 ? <Home /> : roleId == 2 ? <Dashbord /> : <Login />
-              }
-            />
-            <Route path="/" element={<Home />} />
-            <Route path="/Home" element={<Home />} />
-            <Route
-              path="/Buy"
-              element={
-                roleId == 2 ? (
-                  <Dashbord />
-                ) : (
-                  <RequireAuth loginPath="/login">
-                    <Buy />
-                  </RequireAuth>
-                )
-              }
-            />
-            <Route
-              path="/account"
-              element={
-                roleId == 2 ? (
-                  <Dashbord />
-                ) : (
-                  <RequireAuth loginPath="/login">
-                    <UserProfile pages={pages} />
-                  </RequireAuth>
-                )
-              }
-            />
-            <Route
-              path="/Cart"
-              element={
-                <RequireAuth loginPath="/login">
-                  <Cart />
-                </RequireAuth>
-              }
-            />
-            <Route path="/products" element={<UserProduct />} />
-            <Route path="/contact" element={<Contact pages={pages} />} />
-            <Route
-              path="/about"
-              element={
-                <>
-                  <Nav style={style} pages={pages} />
-                  <About />
-                  <Footer />
-                </>
-              }
-            />
-            <Route
-              path="/Products/1"
-              element={
-                roleId == 2 ? (
-                  <Dashbord />
-                ) : (
-                  <RequireAuth loginPath="/login">
-                    <ShowProduct />
-                  </RequireAuth>
-                )
-              }
-            />
-            <Route
-              path="/admin"
-              element={
-                roleId == 1 ? (
-                  <Home />
-                ) : (
-                  <RequireAuth loginPath="/login">
-                    <Dashbord />
-                  </RequireAuth>
-                )
-              }
-            />
-            <Route
-              path="/admin/Home"
-              element={
-                roleId == 1 ? (
-                  <Home />
-                ) : (
-                  <RequireAuth loginPath="/login">
-                    <Dashbord />
-                  </RequireAuth>
-                )
-              }
-            />
-            <Route
-              path="/admin/Products"
-              element={
-                roleId == 1 ? (
-                  <Home />
-                ) : (
-                  <RequireAuth loginPath="/login">
-                    <Products />
-                  </RequireAuth>
-                )
-              }
-            />
-            <Route
-              path="/admin/Orders"
-              element={
-                roleId == 1 ? (
-                  <Home />
-                ) : (
-                  <RequireAuth loginPath="/login">
-                    <Order />
-                  </RequireAuth>
-                )
-              }
-            />
-            <Route
-              path="/admin/addProduct"
-              element={
-                roleId == 1 ? (
-                  <Home />
-                ) : (
-                  <RequireAuth loginPath="/login">
-                    <AddProduct />
-                  </RequireAuth>
-                )
-              }
-            />
-            <Route
-              path="/admin/contact"
-              element={<Contact pages={adminPages} />}
-            />
-            <Route
-              path="/admin/about"
-              element={
-                <>
-                  <Nav style={style} pages={adminPages} />
-                  <AdminAbout />
-                  <Footer />
-                </>
-              }
-            />
-          </Routes>
-        </BrowserRouter>
-      </AuthProvider>
+      <Routes>
+        <Route
+          path="/login"
+          element={
+            roleId == 1 ? <Home /> : roleId == 2 ? <Dashbord /> : <Login />
+          }
+        />
+        <Route path="/" element={<Home />} />
+        <Route path="/Home" element={<Home />} />
+        <Route
+          path="/Buy"
+          element={
+            roleId == 2 ? (
+              <Dashbord />
+            ) : (
+              <RequireAuth loginPath="/login">
+                <Buy />
+              </RequireAuth>
+            )
+          }
+        />
+        <Route
+          path="/account/:id"
+          element={
+            roleId == 2 ? (
+              <Dashbord />
+            ) : (
+              <RequireAuth loginPath="/login">
+                <UserProfile pages={pages} />
+              </RequireAuth>
+            )
+          }
+        />
+        <Route
+          path="/Cart"
+          element={
+            <RequireAuth loginPath="/login">
+              <Cart />
+            </RequireAuth>
+          }
+        />
+        <Route path="/products" element={<UserProduct />} />
+        <Route path="/contact" element={<Contact pages={pages} />} />
+        <Route
+          path="/about"
+          element={
+            <>
+              <Nav style={style} pages={pages} />
+              <About />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/Products/:id"
+          element={
+            roleId == 2 ? (
+              <Dashbord />
+            ) : (
+              <RequireAuth loginPath="/login">
+                <ShowProduct />
+              </RequireAuth>
+            )
+          }
+        />
+        <Route
+          path="/admin"
+          element={
+            roleId == 1 ? (
+              <Home />
+            ) : (
+              <RequireAuth loginPath="/login">
+                <Dashbord />
+              </RequireAuth>
+            )
+          }
+        />
+        <Route
+          path="/admin/Home"
+          element={
+            roleId == 1 ? (
+              <Home />
+            ) : (
+              <RequireAuth loginPath="/login">
+                <Dashbord />
+              </RequireAuth>
+            )
+          }
+        />
+        <Route
+          path="/admin/Products"
+          element={
+            roleId == 1 ? (
+              <Home />
+            ) : (
+              <RequireAuth loginPath="/login">
+                <Products />
+              </RequireAuth>
+            )
+          }
+        />
+        <Route
+          path="/admin/Orders"
+          element={
+            roleId == 1 ? (
+              <Home />
+            ) : (
+              <RequireAuth loginPath="/login">
+                <Order />
+              </RequireAuth>
+            )
+          }
+        />
+        <Route
+          path="/admin/addProduct"
+          element={
+            roleId == 1 ? (
+              <Home />
+            ) : (
+              <RequireAuth loginPath="/login">
+                <AddProduct />
+              </RequireAuth>
+            )
+          }
+        />
+        <Route path="/admin/contact" element={<Contact pages={adminPages} />} />
+        <Route
+          path="/admin/about"
+          element={
+            <>
+              <Nav style={style} pages={adminPages} />
+              <AdminAbout />
+              <Footer />
+            </>
+          }
+        />
+      </Routes>
     </div>
   );
 }

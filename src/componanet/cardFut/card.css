@@ -20,31 +20,38 @@
 h1 {
   font-size: 56px;
 }
+
 h2 {
   font-size: 46px;
 }
+
 h3 {
   font-size: 36px;
 }
+
 h4 {
   font-size: 26px;
 }
+
 h6 {
   font-size: 18px;
 }
 
 #card {
-  padding: 10px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   border-radius: 2px;
   cursor: pointer;
   height: 24vw;
   position: relative;
   transition: 0.3s;
-  width: 30%;
+  border-radius: 10px;
+}
+
+#card {
+  width: 40%;
 }
 
 #card:nth-child(2) {
@@ -55,24 +62,18 @@ h6 {
   box-shadow: 10px 10px 10px #999;
 }
 
-#qun {
-  position: absolute;
-  bottom: 8px;
-  color: var(--green);
-  width: 20%;
-}
-
-#card h6 {
-  font-size: 18px;
-  margin-bottom: 10px;
+#card > h6 {
+  font-size: 24px;
+  text-transform: capitalize;
 }
 
 #card img {
-  width: 80%;
+  width: 16vw;
   max-width: 200px;
-  height: auto;
+  height: 14vw;
   margin-bottom: 10px;
-  border-radius: 8px;
+  border-radius: 10px;
+  object-fit: cover;
 }
 
 #card:hover {
@@ -84,9 +85,10 @@ h6 {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
+  width: 86%;
   position: absolute;
-  top: 0.5vw;
+  bottom: 1vw;
+  gap: 1rem;
 }
 
 #act i {
@@ -105,20 +107,23 @@ h6 {
   color: var(--white);
 }
 
-#card input[type="number"] {
-  width: 80px;
-  padding: 4px 8px;
-  margin-bottom: 10px;
+#qun {
+  margin: 0;
 }
 
 @media screen and (max-width: 768px) {
   #card {
     flex-direction: row;
     align-items: flex-start;
+    height: auto;
+    width: 100%;
   }
 
   #card img {
     margin-right: 10px;
+    width: 30%;
+    max-width: 100px;
+    height: auto;
   }
 
   #card h6 {

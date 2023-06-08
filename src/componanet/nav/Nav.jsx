@@ -81,6 +81,7 @@ const Nav = (props) => {
               style={{ color: props.style.color }}
               class="fa-solid fa-user"
               onClick={showAccount}
+              id="acc"
             ></i>
           </div>
         </div>

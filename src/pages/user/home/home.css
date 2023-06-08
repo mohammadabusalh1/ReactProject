@@ -20,20 +20,22 @@
 h1 {
   font-size: 56px;
 }
+
 h2 {
   font-size: 46px;
 }
+
 h3 {
   font-size: 36px;
 }
+
 h4 {
   font-size: 26px;
 }
+
 h6 {
   font-size: 18px;
 }
-
-
 
 #home #slider {
   display: flex;
@@ -117,7 +119,7 @@ h6 {
   width: fit-content;
 }
 
-#home #point{
+#home #point {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -125,38 +127,78 @@ h6 {
   right: 3vw;
 }
 
-#home #point div{
+#home #point div {
   width: 8px;
   height: 8px;
   border: 1px solid #222;
   border-radius: 50%;
 }
 
-#home #point div.active{
+#home #point div.active {
   background-color: #222;
 }
 
-@media screen and (max-width:792px) {
-  #home #heroInfo{
-    padding: 0 80px;
-  }
-
-  #home #heroInfo h3{
-    font-size: 3vw;
-  }
-
-  #home #heroInfo p{
-    font-size: 1vw;
-  }
-
-  #home #heroInfo button{
-    width: 100%;
-  }
+.added {
+  position: fixed;
+  top: 50%;
+  width: fit-content;
+  background-color: var(--white);
+  padding: 4vw 8vw;
+  border: 1px solid var(--green);
+  border-radius: 4px;
+  right: 33%;
+  display: none;
 }
 
-@media screen and (max-width:392px) {
-  #home #heroInfo{
-    padding: 0 24px;
+/* Responsive Styles */
+
+@media only screen and (max-width: 768px) {
+  h1 {
+    font-size: 42px;
   }
 
+  h2 {
+    font-size: 36px;
+  }
+
+  h3 {
+    font-size: 28px;
+  }
+
+  h4 {
+    font-size: 22px;
+  }
+
+  h6 {
+    font-size: 16px;
+  }
+
+  #home #slide_cont .slide h4 {
+    font-size: 3rem;
+  }
+
+  #home #heroInfo {
+    padding: 0 40px;
+    width: 100%;
+  }
+
+  #home button {
+    font-size: 2vw;
+  }
+
+  #home .hero {
+    background-size: 80%;
+    height: fit-content;
+    padding: 24px;
+    margin-top: 12vw;
+  }
+
+  .hero h3 {
+    font-size: 6vw;
+  }
+
+  .hero p {
+    font-size: 4vw;
+    background-color: rgb(255, 255, 255, 0.7);
+  }
 }

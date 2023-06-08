@@ -20,15 +20,19 @@
 h1 {
   font-size: 56px;
 }
+
 h2 {
   font-size: 46px;
 }
+
 h3 {
   font-size: 36px;
 }
+
 h4 {
   font-size: 26px;
 }
+
 h6 {
   font-size: 18px;
 }
@@ -77,30 +81,27 @@ h6 {
   #cont img {
     display: none;
   }
-}
 
-@media screen and (max-width: 392px) {
   #cont {
-    padding: 0 32px;
+    padding: 30px 32px;
   }
 
-  #info button{
-    width: 100%;
-  }
-
-  #info h6, #info h3, #info p{
+  #info {
+    align-items: center;
     text-align: center;
+    gap: 2rem;
   }
 
-  #info h3{
-    font-size: 12vw;
-  }
-
-  #info h6{
+  #info h3 {
     font-size: 6vw;
   }
 
-  #info p{
-    font-size: 6vw; 
+  #info h6 {
+    font-size: 4vw;
+  }
+
+  #info p {
+    font-size: 4vw;
+    line-height: 48px;
   }
 }
