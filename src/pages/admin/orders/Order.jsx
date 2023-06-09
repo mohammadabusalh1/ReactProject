@@ -2,12 +2,49 @@ import React from "react";
 import Nav from "../../../componanet/nav/Nav";
 import "./order.css";
 import Footer from "../../../componanet/footer/Footer";
+import { useEffect } from "react";
+import { useState } from "react";
+import axios from "axios";
 const Order = () => {
   const style = {
     borderBottom: "1px solid #ccc",
     boxShadow: "0px 2px 15px #ccc",
   };
   let pages = ["Home", "Products", "Orders", "About", "Contact"];
+
+  const [orders, setOrders] = useState([]);
+
+  useEffect(() => {
+    const token = localStorage.getItem("refreshToken");
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    const username = localStorage.getItem("username");
+    const url = "http://localhost:8090/api/v1/mainusers/supplier/" + username;
+    axios
+      .get(url, config)
+      .then((response) => {
+        console.log(response);
+
+        const url =
+          "http://localhost:8090/api/v1/orders/" + response.data.supplier_id;
+        axios
+          .get(url, config)
+          .then((response) => {
+            setOrders(response.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   return (
     <div id="order">
       <Nav style={style} pages={pages} />
@@ -19,67 +56,18 @@ const Order = () => {
           <h6>Late</h6>
         </div>
         <div id="orders_cont">
-          <OrderCard
-            img="https://images.pexels.com/photos/377907/pexels-photo-377907.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            name="Coffe"
-            quantity="2"
-            price="$20"
-            status="Available"
-            date="12/12/2022"
-          />
-          <OrderCard
-            img="https://images.pexels.com/photos/377907/pexels-photo-377907.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            name="Coffe"
-            quantity="2"
-            price="$20"
-            status="Late"
-            date="12/12/2022"
-          />
-
-          <OrderCard
-            img="https://images.pexels.com/photos/377907/pexels-photo-377907.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            name="Coffe"
-            quantity="2"
-            price="$20"
-            status="Processed"
-            date="12/12/2022"
-          />
-
-          <OrderCard
-            img="https://images.pexels.com/photos/377907/pexels-photo-377907.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            name="Coffe"
-            quantity="2"
-            price="$20"
-            status="Cancelled"
-            date="12/12/2022"
-          />
-
-          <OrderCard
-            img="https://images.pexels.com/photos/377907/pexels-photo-377907.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            name="Coffe"
-            quantity="2"
-            price="$20"
-            status="Cancelled"
-            date="12/12/2022"
-          />
-
-          <OrderCard
-            img="https://images.pexels.com/photos/377907/pexels-photo-377907.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            name="Coffe"
-            quantity="2"
-            price="$20"
-            status="Cancelled"
-            date="12/12/2022"
-          />
-
-          <OrderCard
-            img="https://images.pexels.com/photos/377907/pexels-photo-377907.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            name="Coffe"
-            quantity="2"
-            price="$20"
-            status="Cancelled"
-            date="12/12/2022"
-          />
+          {orders.map((order) => {
+            return (
+              <OrderCard
+                img={order?.product?.product_img}
+                name={order?.product?.product_title}
+                quantity={order?.quantity}
+                price={order?.product.product_price}
+                status={order?.status}
+                date={order?.order_date}
+              />
+            );
+          })}
         </div>
       </div>
       <Footer />
@@ -116,13 +104,21 @@ function OrderCard(props) {
 
       {props.status === "Available" ? (
         <div id="handelButton">
-          <button style={{ backgroundColor: "#54B435" }} ><i className="fas fa-check"></i></button>
-          <button style={{ backgroundColor: "#CD1818" }} ><i className="fa-solid fa-x"></i></button>
+          <button style={{ backgroundColor: "#54B435" }}>
+            <i className="fas fa-check"></i>
+          </button>
+          <button style={{ backgroundColor: "#CD1818" }}>
+            <i className="fa-solid fa-x"></i>
+          </button>
         </div>
       ) : props.status === "Late" ? (
         <div id="handelButton">
-          <button style={{ backgroundColor: "#54B435" }} ><i className="fas fa-check"></i></button>
-          <button style={{ backgroundColor: "#CD1818" }} ><i className="fa-solid fa-x"></i></button>
+          <button style={{ backgroundColor: "#54B435" }}>
+            <i className="fas fa-check"></i>
+          </button>
+          <button style={{ backgroundColor: "#CD1818" }}>
+            <i className="fa-solid fa-x"></i>
+          </button>
         </div>
       ) : (
         ""

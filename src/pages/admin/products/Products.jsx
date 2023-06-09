@@ -27,7 +27,6 @@ function ProductsMangmentHero() {
   const [products, setProducts] = useState([]);
   const fetch = () => {
     const token = localStorage.getItem("refreshToken");
-    console.log(token);
     const config = {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -43,7 +42,6 @@ function ProductsMangmentHero() {
 
         const url =
           "http://localhost:8090/api/v1/products/supliers/" + supplierId;
-        console.log(url);
         axios
           .get(url, config)
           .then((response) => {
@@ -74,6 +72,7 @@ function ProductsMangmentHero() {
                 src={e.product_img}
                 title={e.product_name}
                 pieceNum={e.product_quantity}
+                id={e.product_id}
               />
             );
           })}
@@ -87,52 +86,3 @@ function ProductsMangmentHero() {
     </div>
   );
 }
-
-// function Filter() {
-//   const type1 = [
-//     "Vegetables",
-//     "Fruit",
-//     "Leafy Greens",
-//     "Root Vegetables",
-//     "Citrus Fruits",
-//     "Berries",
-//   ];
-//   const type2 = ["Bethlehem", "Hebron", "Ramallah", "Jenin", "Nablus"];
-//   const type3 = ["Cat", "Cat"];
-//   return (
-//     <div id="products_filter">
-//       <h4 htmlFor="type-filter">Filter:</h4>
-//       <div>
-//         <label>Type: </label>
-//         <Options type={type1} />
-//       </div>
-//       <div>
-//         <label>Governorate: </label>
-//         <Options type={type2} />
-//       </div>
-//       <div>
-//         <label>Category: </label>
-//         <Options type={type3} />
-//       </div>
-//       <div id="price">
-//         <label>Min Price:</label>
-//         <input type="number" id="minPrice" placeholder="Min Price" />
-//         <br />
-//         <label htmlFor="maxPrice">Max Price:</label>
-//         <input type="number" id="maxPrice" placeholder="Max Price" />
-//         <br />
-//       </div>
-//       <button>Apply Filter</button>
-//     </div>
-//   );
-// }
-
-// function Options(props) {
-//   const type = props.type.map((e) => <option value={e}>{e}</option>);
-//   return (
-//     <select id="type-filter">
-//       <option value="all">All</option>
-//       {type}
-//     </select>
-//   );
-// }

@@ -1,19 +1,16 @@
-import React from "react";
-import "./account2.css";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
 import { useSignOut } from "react-auth-kit";
 import Service from "../../service/Service";
-import { Link } from "react-router-dom";
+import "./account2.css";
 import $ from "jquery";
-import { useEffect } from "react";
-import axios from "axios";
-import { useState } from "react";
 
 const Account2 = () => {
   const signOut = useSignOut();
   const [user, setUser] = useState({});
 
   const logout = () => {
-    Service.logout();
     signOut();
     localStorage.removeItem("roleId");
     localStorage.removeItem("username");
@@ -23,22 +20,26 @@ const Account2 = () => {
   };
 
   useEffect(() => {
-    const username = localStorage.getItem("username");
-    const token = localStorage.getItem("refreshToken");
-    const config = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+    const fetchData = async () => {
+      try {
+        const username = localStorage.getItem("username");
+        const token = localStorage.getItem("refreshToken");
+        const config = {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        };
+        const response = await axios.get(
+          `http://localhost:8090/api/v1/mainusers/name/${username}`,
+          config
+        );
+        setUser(response.data);
+      } catch (error) {
+        console.log(error);
+      }
     };
 
-    axios
-      .get(`http://localhost:8090/api/v1/mainusers/name/` + username, config)
-      .then((response) => {
-        setUser(() => response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    fetchData();
   }, []);
 
   return (

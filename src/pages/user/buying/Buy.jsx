@@ -49,10 +49,12 @@ const Buy = () => {
           .then((response1) => {
             const arr = response1.data;
             arr.forEach((e) => {
+              console.log(e);
               const ob = {
                 productId: e.product.product_id,
                 quantity: e.quantity,
                 userId: userId,
+                suppId: e.product.supplier.supplier_id,
               };
 
               const url3 = "http://localhost:8090/api/v1/orders";

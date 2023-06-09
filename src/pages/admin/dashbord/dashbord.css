@@ -54,7 +54,12 @@
   border-radius: 4px;
 }
 
-#myProducts > button{
+#myProducts a{
+  width: 100%;
+  text-align: center;
+}
+
+#myProducts a button{
   width: 30%;
   background-color: var(--white);
   color: var(--black);
